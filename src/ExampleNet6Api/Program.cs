@@ -1,6 +1,7 @@
 using Context;
 using Context.Repositories;
 using Context.Repositories.Interfaces;
+using Domain;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -8,6 +9,12 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddAutoMapper(
+    cfg => 
+    {
+        cfg.AddProfile<DomainProfile>();
+    });
 
 builder.Services.AddDbContext<ApiContext>
     (o => o.UseInMemoryDatabase(databaseName: "ExampleDb"));

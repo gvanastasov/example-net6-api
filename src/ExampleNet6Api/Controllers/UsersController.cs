@@ -1,5 +1,7 @@
+using AutoMapper;
 using Context.Models;
 using Context.Repositories.Interfaces;
+using Domain.Responses;
 using Microsoft.AspNetCore.Mvc;
 
 namespace example_net6_api.Controllers;
@@ -9,19 +11,23 @@ namespace example_net6_api.Controllers;
 public class UserController : ControllerBase
 {
     private readonly IUserRepository _userRepository;
+    public readonly IMapper _mapper;
     private readonly ILogger<UserController> _logger;
 
     public UserController(
         IUserRepository userRepository,
+        IMapper mapper,
         ILogger<UserController> logger)
     {
         _userRepository = userRepository;
+        _mapper = mapper;
         _logger = logger;
     }
 
     [HttpGet("")]
-    public IEnumerable<User> Get()
+    public IEnumerable<UserResponse> Get()
     {
-        return _userRepository.GetUsers();
+        var users = _userRepository.GetUsers();
+        return _mapper.Map<IEnumerable<UserResponse>>(users);
     }
 }
