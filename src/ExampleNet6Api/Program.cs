@@ -2,6 +2,8 @@ using Context;
 using Context.Repositories;
 using Context.Repositories.Interfaces;
 using Domain;
+using Extensions;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -17,9 +19,15 @@ builder.Services.AddAutoMapper(
     });
 
 builder.Services.AddDbContext<ApiContext>
-    (o => o.UseInMemoryDatabase(databaseName: "ExampleDb"));
+    (options => options.UseInMemoryDatabase(databaseName: "ExampleDb"));
 
 builder.Services.AddScoped<IUserRepository, UserRepository>();
+
+builder.Services.AddMvc (
+    options => 
+    {
+        options.UseGlobalRoutePrefix (new RouteAttribute ($"api/"));
+    });
 
 var app = builder.Build();
 

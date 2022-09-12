@@ -8,16 +8,16 @@ namespace example_net6_api.Controllers;
 
 [ApiController]
 [Route("users")]
-public class UserController : ControllerBase
+public class UsersController : ControllerBase
 {
     private readonly IUserRepository _userRepository;
     public readonly IMapper _mapper;
-    private readonly ILogger<UserController> _logger;
+    private readonly ILogger<UsersController> _logger;
 
-    public UserController(
+    public UsersController(
         IUserRepository userRepository,
         IMapper mapper,
-        ILogger<UserController> logger)
+        ILogger<UsersController> logger)
     {
         _userRepository = userRepository;
         _mapper = mapper;
