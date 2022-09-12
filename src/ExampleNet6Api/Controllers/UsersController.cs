@@ -1,13 +1,17 @@
 using AutoMapper;
-using Context.Models;
 using Context.Repositories.Interfaces;
 using Domain.Responses;
 using Microsoft.AspNetCore.Mvc;
 
+using static Infrastructure.ApiMeta.Versions;
+using static Infrastructure.ApiMeta.Documentation;
+
 namespace example_net6_api.Controllers;
 
 [ApiController]
-[Route("users")]
+[ApiExplorerSettings(GroupName = v1)]
+[ApiVersion(v1_0)]
+[Route("v1.0/users")]
 public class UsersController : ControllerBase
 {
     private readonly IUserRepository _userRepository;
