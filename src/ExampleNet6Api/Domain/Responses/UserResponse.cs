@@ -1,7 +1,18 @@
-namespace example_net6_api.Domain.Responses
+//-----------------------------------------------------------------------
+// <copyright file="UserResponse.cs" company="n/a">
+//  No rights reserved.
+// </copyright>
+//-----------------------------------------------------------------------
+namespace ExampleNet6ApiDomain.Responses
 {
+    /// <summary>
+    /// API response model for users.
+    /// </summary>
     public sealed class UserResponse
     {
+        /// <summary>
+        /// Gets or sets the unique user identifier.
+        /// </summary>
         public int Id { get; set; }
     }
 }

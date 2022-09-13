@@ -11,6 +11,12 @@ indent_size = 2
 # C# files
 [*.cs]
 
+#### Code Analyzis Rules ####
+dotnet_diagnostic.SA1636.severity = none
+dotnet_diagnostic.SA1309.severity = none
+dotnet_diagnostic.IDE1006.severity = none
+dotnet_diagnostic.IDE0003.severity = none
+
 #### Core EditorConfig Options ####
 
 # Indentation and spacing
