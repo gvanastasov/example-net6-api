@@ -1,13 +1,13 @@
-using Context;
-using Context.Repositories;
-using Context.Repositories.Interfaces;
-using Domain;
-using Extensions;
+using example_net6_api.Context;
+using example_net6_api.Context.Repositories;
+using example_net6_api.Context.Repositories.Interfaces;
+using example_net6_api.Domain;
+using example_net6_api.Extensions;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 
-using static Infrastructure.ApiMeta.Documentation;
+using static example_net6_api.Infrastructure.ApiMeta.Documentation;
 
 var builder = WebApplication.CreateBuilder(args);
 

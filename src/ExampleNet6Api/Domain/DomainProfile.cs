@@ -1,8 +1,8 @@
 using AutoMapper;
-using Context.Models;
-using Domain.Responses;
+using example_net6_api.Context.Models;
+using example_net6_api.Domain.Responses;
 
-namespace Domain
+namespace example_net6_api.Domain
 {
     public sealed class DomainProfile : Profile
     {

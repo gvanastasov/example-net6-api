@@ -1,4 +1,4 @@
-namespace Infrastructure
+namespace example_net6_api.Infrastructure
 {
     public static class ApiMeta
     {

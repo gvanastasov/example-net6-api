@@ -1,4 +1,4 @@
-namespace Context.Models
+namespace example_net6_api.Context.Models
 {
     public class User 
     {

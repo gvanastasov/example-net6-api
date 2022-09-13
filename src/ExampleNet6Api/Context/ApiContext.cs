@@ -1,7 +1,7 @@
-using Context.Models;
+using example_net6_api.Context.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace Context 
+namespace example_net6_api.Context 
 {
     public class ApiContext : DbContext
     {

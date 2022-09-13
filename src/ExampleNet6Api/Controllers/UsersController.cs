@@ -1,10 +1,10 @@
 using AutoMapper;
-using Context.Repositories.Interfaces;
-using Domain.Responses;
+using example_net6_api.Context.Repositories.Interfaces;
+using example_net6_api.Domain.Responses;
 using Microsoft.AspNetCore.Mvc;
 
-using static Infrastructure.ApiMeta.Versions;
-using static Infrastructure.ApiMeta.Documentation;
+using static example_net6_api.Infrastructure.ApiMeta.Versions;
+using static example_net6_api.Infrastructure.ApiMeta.Documentation;
 
 namespace example_net6_api.Controllers;
 

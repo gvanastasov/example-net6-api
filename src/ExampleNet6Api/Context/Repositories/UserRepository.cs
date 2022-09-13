@@ -1,7 +1,7 @@
-using Context.Models;
-using Context.Repositories.Interfaces;
+using example_net6_api.Context.Models;
+using example_net6_api.Context.Repositories.Interfaces;
 
-namespace Context.Repositories
+namespace example_net6_api.Context.Repositories
 {
     public sealed class UserRepository : IUserRepository
     {

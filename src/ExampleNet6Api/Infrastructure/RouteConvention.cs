@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc.ApplicationModels;
 using Microsoft.AspNetCore.Mvc.Routing;
 
-namespace Infrastructure
+namespace example_net6_api.Infrastructure
 {
     public class RouteConvention : IApplicationModelConvention
     {

@@ -1,6 +1,6 @@
-using Context.Models;
+using example_net6_api.Context.Models;
 
-namespace Context.Repositories.Interfaces
+namespace example_net6_api.Context.Repositories.Interfaces
 {
     public interface IUserRepository
     {

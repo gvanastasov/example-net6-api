@@ -1,8 +1,8 @@
-using Infrastructure;
+using example_net6_api.Infrastructure;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Routing;
 
-namespace Extensions
+namespace example_net6_api.Extensions
 {
     public static class MvcOptionsExtension 
     {
