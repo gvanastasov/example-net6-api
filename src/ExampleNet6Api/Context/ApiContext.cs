@@ -3,9 +3,9 @@
 //  No rights reserved.
 // </copyright>
 //-----------------------------------------------------------------------
-namespace ExampleNet6ApiContext
+namespace ExampleNet6Api.Context
 {
-    using ExampleNet6ApiContext.Models;
+    using ExampleNet6Api.Context.Models;
     using Microsoft.EntityFrameworkCore;
 
     /// <summary>
@@ -29,7 +29,7 @@ namespace ExampleNet6ApiContext
         public DbSet<User> Users => this.Set<User>();
 
         /// <summary>
-        /// Callback before <see cref="DbSet"/> are initialized.
+        /// Callback before sets are initialized.
         /// </summary>
         /// <param name="modelBuilder">Model builder.</param>
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -38,8 +38,20 @@ namespace ExampleNet6ApiContext
 
             modelBuilder
                 .Entity<User>()
-                .HasData(
-                    new User { Id = 1 });
+                .HasData(GetUsers());
+        }
+
+        private static IEnumerable<User> GetUsers()
+        {
+            for (int i = 1; i < 100; i++)
+            {
+                yield return new User
+                {
+                    Id = i,
+                    FirstName = Faker.Name.First(),
+                    LastName = Faker.Name.Last(),
+                };
+            }
         }
     }
 }
