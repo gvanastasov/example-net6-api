@@ -6,7 +6,7 @@
 namespace ExampleNet6ApiControllers
 {
     using AutoMapper;
-    using ExampleNet6ApiContext.Repositories.Interfaces;
+    using ExampleNet6Api.Context.Repositories.Interfaces;
     using ExampleNet6ApiDomain.Responses;
     using Microsoft.AspNetCore.Mvc;
 

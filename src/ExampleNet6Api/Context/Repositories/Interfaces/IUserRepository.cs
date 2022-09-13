@@ -3,9 +3,9 @@
 //  No rights reserved.
 // </copyright>
 //-----------------------------------------------------------------------
-namespace ExampleNet6ApiContext.Repositories.Interfaces
+namespace ExampleNet6Api.Context.Repositories.Interfaces
 {
-    using ExampleNet6ApiContext.Models;
+    using ExampleNet6Api.Context.Models;
 
     /// <summary>
     /// User repository.

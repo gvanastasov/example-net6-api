@@ -6,7 +6,7 @@
 namespace ExampleNet6ApiDomain
 {
     using AutoMapper;
-    using ExampleNet6ApiContext.Models;
+    using ExampleNet6Api.Context.Models;
     using ExampleNet6ApiDomain.Responses;
 
     /// <summary>
