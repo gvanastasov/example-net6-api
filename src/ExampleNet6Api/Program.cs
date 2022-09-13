@@ -3,9 +3,11 @@
 //  No rights reserved.
 // </copyright>
 //-----------------------------------------------------------------------
-using ExampleNet6ApiContext;
-using ExampleNet6ApiContext.Repositories;
-using ExampleNet6ApiContext.Repositories.Interfaces;
+using System.Reflection;
+
+using ExampleNet6Api.Context;
+using ExampleNet6Api.Context.Repositories;
+using ExampleNet6Api.Context.Repositories.Interfaces;
 using ExampleNet6ApiDomain;
 using ExampleNet6ApiExtensions;
 using Microsoft.AspNetCore.Mvc;
@@ -13,6 +15,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 
 using static ExampleNet6ApiInfrastructure.ApiMeta.Documentation;
+
+[assembly:AssemblyVersion("1.0.0")]
 
 /// <summary>
 /// Main application entry point.
