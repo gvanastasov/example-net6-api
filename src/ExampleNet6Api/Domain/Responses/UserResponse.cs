@@ -26,8 +26,15 @@ namespace ExampleNet6Api.Domain.Responses
         public string LastName { get; set; } = string.Empty;
 
         /// <summary>
-        /// Gets or sets user's subscriptions.
+        /// Gets or sets user's registration email.
         /// </summary>
-        public IEnumerable<SubscriptionResponse> Subscriptions { get; set; } = Enumerable.Empty<SubscriptionResponse>();
+        public string Email { get; set; } = string.Empty;
+
+        /// <summary>
+        /// Gets or sets a value indicating whether user's profile state is active.
+        /// Data is kept for specific timespan compliant with GDRP, before
+        /// completelly erased from the system.
+        /// </summary>
+        public bool IsActive { get; set; }
     }
 }

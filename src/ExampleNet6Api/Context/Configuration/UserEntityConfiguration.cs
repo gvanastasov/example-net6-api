@@ -28,11 +28,17 @@ namespace ExampleNet6Api.Context.Configuration
         {
             for (int i = 1; i <= 10; i++)
             {
+                var firstName = Faker.Name.First();
+                var lastName = Faker.Name.Last();
+                var email = $"{firstName.ToLowerInvariant()}_{lastName.ToLowerInvariant()}";
+
                 yield return new User
                 {
                     Id = i,
-                    FirstName = Faker.Name.First(),
-                    LastName = Faker.Name.Last(),
+                    FirstName = firstName,
+                    LastName = lastName,
+                    Email = Faker.Internet.Email(email),
+                    IsActive = true,
                 };
             }
         }

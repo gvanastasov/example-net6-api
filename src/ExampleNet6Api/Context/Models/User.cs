@@ -5,6 +5,7 @@
 //-----------------------------------------------------------------------
 namespace ExampleNet6Api.Context.Models
 {
+    using System.ComponentModel.DataAnnotations;
     using System.Globalization;
 
     using ExampleNet6Api.Infrastructure;
@@ -26,12 +27,27 @@ namespace ExampleNet6Api.Context.Models
         /// <summary>
         /// Gets or sets user's first name.
         /// </summary>
-        public string FirstName { get; set; } = string.Empty;
+        [Required]
+        public string FirstName { get; set; } = null!;
 
         /// <summary>
         /// Gets or sets user's last name.
         /// </summary>
-        public string LastName { get; set; } = string.Empty;
+        [Required]
+        public string LastName { get; set; } = null!;
+
+        /// <summary>
+        /// Gets or sets user's registration email.
+        /// </summary>
+        [Required]
+        public string Email { get; set; } = null!;
+
+        /// <summary>
+        /// Gets or sets a value indicating whether user's profile state is active.
+        /// Data is kept for specific timespan compliant with GDRP, before
+        /// completelly erased from the system.
+        /// </summary>
+        public bool IsActive { get; set; }
 
         /// <summary>
         /// Gets or sets user's owned subscriptions.
