@@ -35,6 +35,11 @@ namespace ExampleNet6Api.Context
         public DbSet<Subscription> Subscriptions => this.Set<Subscription>();
 
         /// <summary>
+        /// Gets accounts dataset.
+        /// </summary>
+        public DbSet<Account> Accounts => this.Set<Account>();
+
+        /// <summary>
         /// Callback before sets are initialized.
         /// </summary>
         /// <param name="modelBuilder">Model builder.</param>
@@ -44,6 +49,7 @@ namespace ExampleNet6Api.Context
 
             modelBuilder.ApplyConfiguration(new UserEntityConfiguration());
             modelBuilder.ApplyConfiguration(new SubscriptionEntityConfiguration());
+            modelBuilder.ApplyConfiguration(new AccountEntityConfiguration());
         }
     }
 }

@@ -16,6 +16,8 @@ namespace ExampleNet6Api.Context.Models
     {
         private ICollection<Subscription>? _subscriptions;
 
+        private Account? _account;
+
         /// <summary>
         /// Gets or sets the unique user identifier.
         /// </summary>
@@ -44,6 +46,21 @@ namespace ExampleNet6Api.Context.Models
                         ErrorMessages.UninitializedProperty,
                         nameof(this.Subscriptions)));
             set => this._subscriptions = value;
+        }
+
+        /// <summary>
+        /// Gets or sets user's billing account.
+        /// </summary>
+        public virtual Account Account
+        {
+            get =>
+                this._account
+                ?? throw new InvalidOperationException(
+                    string.Format(
+                        CultureInfo.CurrentCulture,
+                        ErrorMessages.UninitializedProperty,
+                        nameof(this.Account)));
+            set => this._account = value;
         }
     }
 }
