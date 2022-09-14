@@ -43,7 +43,7 @@ internal class Program
         builder.Services.AddAutoMapper(
             config => config.AddProfile<DomainProfile>());
 
-        builder.Services.AddDbContext<ApiContext>(
+        builder.Services.AddDbContext<DataContext>(
             options => options.UseInMemoryDatabase(databaseName: "ExampleDb"));
 
         builder.Services.AddScoped<IUserRepository, UserRepository>();

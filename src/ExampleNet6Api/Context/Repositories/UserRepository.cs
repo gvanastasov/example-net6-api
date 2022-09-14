@@ -15,13 +15,13 @@ namespace ExampleNet6Api.Context.Repositories
     /// </summary>
     public sealed class UserRepository : IUserRepository
     {
-        private readonly ApiContext db;
+        private readonly DataContext db;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="UserRepository"/> class.
         /// </summary>
         /// <param name="db">Application data context.</param>
-        public UserRepository(ApiContext db)
+        public UserRepository(DataContext db)
         {
             this.db = db;
         }

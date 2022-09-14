@@ -1,5 +1,5 @@
 //-----------------------------------------------------------------------
-// <copyright file="ApiContext.cs" company="n/a">
+// <copyright file="DataContext.cs" company="n/a">
 //  No rights reserved.
 // </copyright>
 //-----------------------------------------------------------------------
@@ -12,13 +12,13 @@ namespace ExampleNet6Api.Context
     /// <summary>
     /// Application data context.
     /// </summary>
-    public class ApiContext : DbContext
+    public class DataContext : DbContext
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ApiContext"/> class.
+        /// Initializes a new instance of the <see cref="DataContext"/> class.
         /// </summary>
         /// <param name="options">Configuration options.</param>
-        public ApiContext(DbContextOptions<ApiContext> options)
+        public DataContext(DbContextOptions<DataContext> options)
             : base(options)
         {
             this.Database.EnsureCreated();

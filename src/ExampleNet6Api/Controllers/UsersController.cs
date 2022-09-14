@@ -3,7 +3,7 @@
 //  No rights reserved.
 // </copyright>
 //-----------------------------------------------------------------------
-namespace ExampleNet6ApiControllers
+namespace ExampleNet6Api.Controllers
 {
     using AutoMapper;
 
