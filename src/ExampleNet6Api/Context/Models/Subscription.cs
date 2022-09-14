@@ -1,5 +1,5 @@
 //-----------------------------------------------------------------------
-// <copyright file="User.cs" company="n/a">
+// <copyright file="Subscription.cs" company="n/a">
 //  No rights reserved.
 // </copyright>
 //-----------------------------------------------------------------------
@@ -10,40 +10,35 @@ namespace ExampleNet6Api.Context.Models
     using ExampleNet6Api.Infrastructure;
 
     /// <summary>
-    /// User data model.
+    /// Subscription data model.
     /// </summary>
-    public class User
+    public class Subscription
     {
-        private ICollection<Subscription>? _subscriptions;
+        private User? _user;
 
         /// <summary>
-        /// Gets or sets the unique user identifier.
+        /// Gets or sets the unique subscription identifier.
         /// </summary>
         public int Id { get; set; }
 
         /// <summary>
-        /// Gets or sets user's first name.
+        /// Gets or sets foreign key for owner reference.
         /// </summary>
-        public string FirstName { get; set; } = string.Empty;
+        public int UserId { get; set; }
 
         /// <summary>
-        /// Gets or sets user's last name.
+        /// Gets or sets the owner of this subscription.
         /// </summary>
-        public string LastName { get; set; } = string.Empty;
-
-        /// <summary>
-        /// Gets or sets user's owned subscriptions.
-        /// </summary>
-        public virtual ICollection<Subscription> Subscriptions
+        public virtual User User
         {
             get =>
-                this._subscriptions
+                this._user
                 ?? throw new InvalidOperationException(
                     string.Format(
                         CultureInfo.CurrentCulture,
                         ErrorMessages.UninitializedProperty,
-                        nameof(this.Subscriptions)));
-            set => this._subscriptions = value;
+                        nameof(this.User)));
+            set => this._user = value;
         }
     }
 }

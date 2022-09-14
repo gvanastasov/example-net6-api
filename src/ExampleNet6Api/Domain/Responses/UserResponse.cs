@@ -3,7 +3,7 @@
 //  No rights reserved.
 // </copyright>
 //-----------------------------------------------------------------------
-namespace ExampleNet6ApiDomain.Responses
+namespace ExampleNet6Api.Domain.Responses
 {
     /// <summary>
     /// API response model for users.
@@ -24,5 +24,10 @@ namespace ExampleNet6ApiDomain.Responses
         /// Gets or sets user's last name.
         /// </summary>
         public string LastName { get; set; } = string.Empty;
+
+        /// <summary>
+        /// Gets or sets user's subscriptions.
+        /// </summary>
+        public IEnumerable<SubscriptionResponse> Subscriptions { get; set; } = Enumerable.Empty<SubscriptionResponse>();
     }
 }

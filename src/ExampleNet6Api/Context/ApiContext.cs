@@ -5,6 +5,7 @@
 //-----------------------------------------------------------------------
 namespace ExampleNet6Api.Context
 {
+    using ExampleNet6Api.Context.Configuration;
     using ExampleNet6Api.Context.Models;
     using Microsoft.EntityFrameworkCore;
 
@@ -29,6 +30,11 @@ namespace ExampleNet6Api.Context
         public DbSet<User> Users => this.Set<User>();
 
         /// <summary>
+        /// Gets subscriptions dataset.
+        /// </summary>
+        public DbSet<Subscription> Subscriptions => this.Set<Subscription>();
+
+        /// <summary>
         /// Callback before sets are initialized.
         /// </summary>
         /// <param name="modelBuilder">Model builder.</param>
@@ -36,22 +42,8 @@ namespace ExampleNet6Api.Context
         {
             base.OnModelCreating(modelBuilder);
 
-            modelBuilder
-                .Entity<User>()
-                .HasData(GetUsers());
-        }
-
-        private static IEnumerable<User> GetUsers()
-        {
-            for (int i = 1; i < 100; i++)
-            {
-                yield return new User
-                {
-                    Id = i,
-                    FirstName = Faker.Name.First(),
-                    LastName = Faker.Name.Last(),
-                };
-            }
+            modelBuilder.ApplyConfiguration(new UserEntityConfiguration());
+            modelBuilder.ApplyConfiguration(new SubscriptionEntityConfiguration());
         }
     }
 }

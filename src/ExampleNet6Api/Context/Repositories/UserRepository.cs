@@ -8,6 +8,8 @@ namespace ExampleNet6Api.Context.Repositories
     using ExampleNet6Api.Context.Models;
     using ExampleNet6Api.Context.Repositories.Interfaces;
 
+    using Microsoft.EntityFrameworkCore;
+
     /// <summary>
     /// User repository implementation.
     /// </summary>
@@ -30,7 +32,7 @@ namespace ExampleNet6Api.Context.Repositories
         /// <returns>List of users.</returns>
         public List<User> GetUsers()
         {
-            var users = this.db.Users.ToList();
+            var users = this.db.Users.Include(x => x.Subscriptions).ToList();
             return users;
         }
     }

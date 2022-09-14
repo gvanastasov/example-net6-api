@@ -7,7 +7,7 @@ namespace ExampleNet6ApiDomain
 {
     using AutoMapper;
     using ExampleNet6Api.Context.Models;
-    using ExampleNet6ApiDomain.Responses;
+    using ExampleNet6Api.Domain.Responses;
 
     /// <summary>
     /// Mapping register for domain models.
@@ -20,6 +20,7 @@ namespace ExampleNet6ApiDomain
         public DomainProfile()
         {
             this.CreateMap<User, UserResponse>();
+            this.CreateMap<Subscription, SubscriptionResponse>();
         }
     }
 }
