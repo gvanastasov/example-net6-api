@@ -16,5 +16,12 @@ namespace ExampleNet6Api.Infrastructure
         /// for example navigational properties.
         /// </summary>
         public const string UninitializedProperty = "Uninitialized property: {0}";
+
+        /// <summary>
+        /// Error message thrown when interfacing with
+        /// application context via entity uuid, that is wrongly
+        /// formatted.
+        /// </summary>
+        public const string InvalidEntityId = "Invalid entity id: {0}";
     }
 }
