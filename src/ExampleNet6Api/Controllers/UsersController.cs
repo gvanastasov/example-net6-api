@@ -7,6 +7,7 @@ namespace ExampleNet6Api.Controllers
 {
     using AutoMapper;
 
+    using ExampleNet6Api.Context;
     using ExampleNet6Api.Context.Repositories.Interfaces;
     using ExampleNet6Api.Domain.Responses;
 
@@ -24,30 +25,31 @@ namespace ExampleNet6Api.Controllers
     [Route("v1.0/users")]
     public class UsersController : ControllerBase
     {
-        private readonly IUserRepository _userRepository;
+        private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="UsersController"/> class.
         /// </summary>
-        /// <param name="userRepository">User repository.</param>
+        /// <param name="unitOfWork">Unit of work.</param>
         /// <param name="mapper">Mapper.</param>
         public UsersController(
-            IUserRepository userRepository,
+            IUnitOfWork unitOfWork,
             IMapper mapper)
         {
-            this._userRepository = userRepository;
+            this._unitOfWork = unitOfWork;
             this._mapper = mapper;
         }
 
         /// <summary>
-        /// GET request handler for route /users.
+        /// GET: /users
+        /// handles user read related requestions.
         /// </summary>
         /// <returns>A collection of all users.</returns>
         [HttpGet("")]
         public IEnumerable<UserResponse> Get()
         {
-            var users = this._userRepository.GetUsers();
+            var users = this._unitOfWork.UserRepository.GetAll();
             return this._mapper.Map<IEnumerable<UserResponse>>(users);
         }
     }

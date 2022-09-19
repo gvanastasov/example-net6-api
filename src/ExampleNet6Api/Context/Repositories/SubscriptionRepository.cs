@@ -1,5 +1,5 @@
 //-----------------------------------------------------------------------
-// <copyright file="UserRepository.cs" company="n/a">
+// <copyright file="SubscriptionRepository.cs" company="n/a">
 //  No rights reserved.
 // </copyright>
 //-----------------------------------------------------------------------
@@ -11,13 +11,13 @@ namespace ExampleNet6Api.Context.Repositories
     /// <summary>
     /// User repository implementation.
     /// </summary>
-    public sealed class UserRepository : BaseRepository<User>, IUserRepository
+    public sealed class SubscriptionRepository : BaseRepository<Subscription>, ISubscriptionRepository
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="UserRepository"/> class.
+        /// Initializes a new instance of the <see cref="SubscriptionRepository"/> class.
         /// </summary>
         /// <param name="context">Data context.</param>
-        public UserRepository(DataContext context)
+        public SubscriptionRepository(DataContext context)
             : base(context)
         {
         }

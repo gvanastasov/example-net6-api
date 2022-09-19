@@ -7,8 +7,6 @@ using System.Reflection;
 using System.Text.Json.Serialization;
 
 using ExampleNet6Api.Context;
-using ExampleNet6Api.Context.Repositories;
-using ExampleNet6Api.Context.Repositories.Interfaces;
 using ExampleNet6ApiDomain;
 using ExampleNet6ApiExtensions;
 using Microsoft.AspNetCore.Mvc;
@@ -46,7 +44,7 @@ internal class Program
         builder.Services.AddDbContext<DataContext>(
             options => options.UseInMemoryDatabase(databaseName: "ExampleDb"));
 
-        builder.Services.AddScoped<IUserRepository, UserRepository>();
+        builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
         builder.Services.AddMvc(
             options =>
