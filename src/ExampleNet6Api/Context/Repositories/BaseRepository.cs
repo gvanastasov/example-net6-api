@@ -5,9 +5,11 @@
 //-----------------------------------------------------------------------
 namespace ExampleNet6Api.Context.Repositories
 {
+    using System.Globalization;
     using System.Linq.Expressions;
 
     using ExampleNet6Api.Context.Repositories.Interfaces;
+    using ExampleNet6Api.Infrastructure;
 
     using Microsoft.EntityFrameworkCore;
 
@@ -67,9 +69,22 @@ namespace ExampleNet6Api.Context.Repositories
         /// <returns>Single entity or null.</returns>
         public virtual TEntity? GetByID(object id)
         {
-            return id != null
-                ? this.dbSet.Find(id)
-                : throw new ArgumentNullException(nameof(id));
+            if (id == null)
+            {
+                throw new ArgumentNullException(nameof(id));
+            }
+
+            try
+            {
+                int idNum = Convert.ToInt32(id, CultureInfo.CurrentCulture);
+                return this.dbSet.Find(idNum);
+            }
+            catch
+            {
+                var errorMessage = string.Format(
+                    CultureInfo.InvariantCulture, ErrorMessages.InvalidEntityId, id);
+                throw new InvalidOperationException(errorMessage);
+            }
         }
 
         /// <summary>
@@ -97,7 +112,7 @@ namespace ExampleNet6Api.Context.Repositories
                 throw new ArgumentNullException(nameof(id));
             }
 
-            TEntity? target = this.dbSet.Find(id);
+            TEntity? target = this.GetByID(id);
 
             if (target == null)
             {
