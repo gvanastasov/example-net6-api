@@ -4,7 +4,6 @@
 // </copyright>
 //-----------------------------------------------------------------------
 using System.Reflection;
-using System.Text.Json.Serialization;
 
 using ExampleNet6Api.Context;
 using ExampleNet6ApiDomain;
@@ -12,6 +11,9 @@ using ExampleNet6ApiExtensions;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
+
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 
 using static ExampleNet6ApiInfrastructure.ApiMeta.Documentation;
 
@@ -26,11 +28,17 @@ internal class Program
     {
         var builder = WebApplication.CreateBuilder(args);
 
-        builder.Services.AddControllers().AddJsonOptions(options =>
-        {
-            options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
-            options.JsonSerializerOptions.WriteIndented = true;
-        });
+        builder.Services
+            .AddControllers()
+            .AddNewtonsoftJson(
+                options =>
+                {
+                    options.SerializerSettings.Converters.Add(new StringEnumConverter());
+                    options.SerializerSettings.Converters.Add(new IsoDateTimeConverter());
+
+                    options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
+                    options.SerializerSettings.Formatting = Formatting.Indented;
+                });
 
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen(
