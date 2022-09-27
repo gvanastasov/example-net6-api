@@ -47,6 +47,7 @@ namespace ExampleNet6Api.Controllers
         /// </summary>
         /// <returns>A collection of all users.</returns>
         [HttpGet("")]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(IEnumerable<UserResponse>))]
         public IEnumerable<UserResponse> Get()
         {
             var users = this._unitOfWork.UserRepository.GetAll();
@@ -54,17 +55,17 @@ namespace ExampleNet6Api.Controllers
         }
 
         /// <summary>
-        /// GET: /users/{id}
+        /// GET: /users/{userId}
         /// handles user with specified id read query.
         /// </summary>
-        /// <param name="id">User unique identifier.</param>
+        /// <param name="userId">User unique identifier.</param>
         /// <returns>User based on id.</returns>
-        [HttpGet("{id}")]
+        [HttpGet("{userId}")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(UserResponse))]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public IActionResult GetById(string id)
+        public IActionResult GetById(string userId)
         {
-            var user = this._unitOfWork.UserRepository.GetByID(id);
+            var user = this._unitOfWork.UserRepository.GetByID(userId);
 
             if (user == null)
             {

@@ -5,9 +5,9 @@
 //-----------------------------------------------------------------------
 namespace ExampleNet6Api.Domain.Responses
 {
-    using System.Text.Json.Serialization;
     using ExampleNet6Api.Context.Enums;
 
+    using Newtonsoft.Json;
     using Newtonsoft.Json.Converters;
 
     /// <summary>
@@ -23,25 +23,21 @@ namespace ExampleNet6Api.Domain.Responses
         /// <summary>
         /// Gets or sets the subscription's activation date.
         /// </summary>
-        [JsonConverter(typeof(IsoDateTimeConverter))]
         public DateTime Activated { get; set; }
 
         /// <summary>
         /// Gets or sets the subscription's deactivation date.
         /// </summary>
-        [JsonConverter(typeof(IsoDateTimeConverter))]
         public DateTime? Deactivated { get; set; }
 
         /// <summary>
         /// Gets or sets subscription's current state.
         /// </summary>
-        [JsonConverter(typeof(StringEnumConverter))]
         public SubscriptionState State { get; set; }
 
         /// <summary>
         /// Gets or sets the payment cycle for the subscription.
         /// </summary>
-        [JsonConverter(typeof(JsonStringEnumConverter))]
         public SubscriptionPaymentCycle PaymentCycle { get; set; }
 
         /// <summary>
